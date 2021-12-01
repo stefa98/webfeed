@@ -33,30 +33,35 @@ class Group {
   static parse(XmlElement? element) {
     if (element == null) return null;
     return Group(
-      title: Title.parse(
-        findFirstElement(element, 'media:title'),
-      ),
+      title: element
+          .findElements('media:title')
+          .map((e) => Title.parse(e))
+          .firstOrNull,
       contents: element.findElements('media:content').map((e) {
         return Content.parse(e);
       }).toList(),
       thumbnails: element.findElements('media:thumbnail').map((e) {
         return Thumbnail.parse(e);
       }).toList(),
-      description: Description.parse(
-        findFirstElement(element, 'media:description'),
-      ),
-      community: Community.parse(
-        findFirstElement(element, 'media:community'),
-      ),
+      description: element
+          .findElements('media:description')
+          .map((e) => Description.parse(e))
+          .firstOrNull,
+      community: element
+          .findElements('media:community')
+          .map((e) => Community.parse(e))
+          .firstOrNull,
       credits: element.findElements('media:credit').map((e) {
         return Credit.parse(e);
       }).toList(),
-      category: Category.parse(
-        findFirstElement(element, 'media:category'),
-      ),
-      rating: Rating.parse(
-        findFirstElement(element, 'media:rating'),
-      ),
+      category: element
+          .findElements('media:category')
+          .map((e) => Category.parse(e))
+          .firstOrNull,
+      rating: element
+          .findElements('media:rating')
+          .map((e) => Rating.parse(e))
+          .firstOrNull,
     );
   }
 }
