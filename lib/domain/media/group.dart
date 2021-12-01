@@ -6,7 +6,7 @@ import 'package:webfeed/domain/media/thumbnail.dart';
 import 'package:webfeed/domain/media/title.dart';
 import 'package:webfeed/domain/media/description.dart';
 import 'package:webfeed/domain/media/community.dart';
-import 'package:webfeed/util/xml.dart';
+import 'package:webfeed/util/iterable.dart';
 import 'package:xml/xml.dart';
 
 class Group {
